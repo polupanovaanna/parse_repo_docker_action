@@ -7,6 +7,9 @@ inputs:
   diff:
     description: "diff between master and PR branch"
     default: ""
+  host:
+    description: "server"
+    default: ${{ secrets.SERVER_URL }}
 outputs:
   message:
     description: "Output from the action"
