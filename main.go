@@ -28,8 +28,10 @@ func main() {
 
 	masterHeadCommit := os.Getenv("INPUT_HEADHASH")
 	diff := os.Getenv("INPUT_DIFF")
+	command := os.Getenv("INPUT_COMMAND")
 
-	response, err := c.Translate(context.Background(), &util.CommitInfo{HeadHash: masterHeadCommit, CommitDiff: diff})
+	response, err := c.Translate(context.Background(), &util.CommitInfo{
+		HeadHash: masterHeadCommit, CommitDiff: diff, CommandLine: command})
 	CheckErr(err, "Error when processing git info: %s")
 	log.Printf("Response from server: %s", response)
 
