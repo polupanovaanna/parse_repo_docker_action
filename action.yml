@@ -9,6 +9,8 @@ inputs:
     default: ""
   host:
     description: "server host"
+  command:
+    description: "command that will be executed"
 outputs:
   message:
     description: "Output from the action"
