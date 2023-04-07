@@ -5,7 +5,7 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"os"
-	"project/util"
+	"project/commit_info"
 )
 
 func CheckErr(err error, msg string) {
@@ -24,13 +24,13 @@ func main() {
 
 	defer conn.Close()
 
-	c := util.NewCommitDataClient(conn)
+	c := commit_info.NewCommitDataClient(conn)
 
 	masterHeadCommit := os.Getenv("INPUT_HEADHASH")
 	diff := os.Getenv("INPUT_DIFF")
 	command := os.Getenv("INPUT_COMMAND")
 
-	response, err := c.Translate(context.Background(), &util.CommitInfo{
+	response, err := c.Translate(context.Background(), &commit_info.CommitInfo{
 		HeadHash: masterHeadCommit, CommitDiff: diff, CommandLine: command})
 	CheckErr(err, "Error when processing git info: %s")
 	log.Printf("Response from server: %s", response)

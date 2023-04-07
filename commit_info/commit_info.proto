@@ -1,5 +1,5 @@
 syntax = "proto3";
-package util;
+package commit_info;
 
 message CommitInfo {
   string headHash = 1;
