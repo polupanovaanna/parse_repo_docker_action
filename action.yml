@@ -11,6 +11,8 @@ inputs:
     description: "server host"
   command:
     description: "command that will be executed"
+  targets:
+    description: "affected bazel targets"
 outputs:
   message:
     description: "Output from the action"
